@@ -82,11 +82,11 @@
         <table class="table table-dark table-striped mb-0">
             <thead>
                 <tr>
-                    <th>Metric</th>
-                    <th>Value</th>
+                    <th>Memory Metric</th>
+                    <th>Value Registered</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="memory-tbody" hx-get="/memory" hx-trigger="every 1s" hx-select="#memory-tbody > *" hx-swap="innerHTML">
                 <tr><td>Installed Hardware RAM Capacity</td><td><span class="badge bg-primary">{{.RAMCap}} MB</span></td></tr>
                 <tr><td>Total OS Visible Space</td><td>{{.TotalMem}} MB</td></tr>
                 <tr><td>Currently Active / Used</td><td>{{.UsedMem}} MB</td></tr>
@@ -108,7 +108,7 @@
             <h4 class="text-info border-bottom border-secondary pb-2 mb-3">Operating System</h4>
             <p><strong>OS Name:</strong> {{.OSName}}</p>
             <p><strong>Build/Version:</strong> {{.OSVersion}}</p>
-            <p><strong>Platform:</strong> Microsoft Windows (WMI Pipeline)</p>
+            <p><strong>Platform:</strong> {{.OSPlatform}}</p>
         </div>
     </div>
 </div>
